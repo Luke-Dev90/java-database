@@ -4,18 +4,28 @@ public class MainProductos {
 	public static void main(String[]args) throws Exception{
 		
 		
-		/*	Ejemplos:				 Descripción - precio
-		 *  Productos p = new Productos("Maletin",3335.66);
+		/*	Ejemplos de insertar:	    Descripción - precio ↓
+		 *  Productos p = new Productos("Maletin"   , 3335.66);
+		 *  PreparedStatementEjemplo.inserta(p);
 		 *  
-		 *  agregar registro:
-		 *  PreparedStatement.inserta(p);
+		 *  Modifica el producto con el ID seteado. ↓  
+		 *  Proudctos p2 = new Productos("Cacerola Carol", 2222);
+		 *  p2.setId(1);
+		 *  PreparedStatementEjemplo.modifica(p2);
 		 *  
-		 *  p.setId(1);
-		 *  PreparedStatement.modifica(p);
+		 *  Elimina el producto con el id seleccionado: ↓
+		 *  PreparedStatementEjemplo.elimina(4);
+		 *  
+		 *  Devuelve el producto con el id seleccionado.↓
+		 *  PreparedStatementEjemplo.getProducto(1);
 		 *  
 		 */
-		PreparedStatement.Listar();
 		
+		
+		//Devuelve la lista de productos completa.
+		//PreparedStatementEjemplo.Listar();
+		
+		PreparedStatementEjemplo.Listar();
 		
 	}
 }
