@@ -25,7 +25,7 @@ public class MainProductos {
 		//Devuelve la lista de productos completa.
 		//PreparedStatementEjemplo.Listar();
 		
-		PreparedStatementEjemplo.Listar();
+		PreparedStatementEjemplo.getProductos();
 		
 	}
 }

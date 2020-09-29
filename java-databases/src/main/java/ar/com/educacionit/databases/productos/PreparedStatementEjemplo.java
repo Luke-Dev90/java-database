@@ -1,6 +1,8 @@
 package ar.com.educacionit.databases.productos;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PreparedStatementEjemplo 
 {	
@@ -187,4 +189,49 @@ public class PreparedStatementEjemplo
 		con.close();
 		}
 	}
+	
+	public static ArrayList<Productos> getProductos() throws Exception
+	{
+		Connection con = null;
+		ArrayList<Productos> productos = new ArrayList<Productos>();
+
+		PreparedStatement ps = null;
+		try {
+
+		con = DBConexion.obtenerConexion();
+		String sentenciaCheck = "select * from productos";
+		ps = con.prepareStatement(sentenciaCheck);
+		
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()) 
+		{
+			Productos p = null;
+			int idView = rs.getInt("id");
+			String descripcion = rs.getString("descripcion");
+			double precio = rs.getDouble("precio");
+			
+			p = new Productos();
+			
+			p.setId(idView);
+			p.setDescripcion(descripcion);
+			p.setPrecio(precio);
+			productos.add(p);
+			
+		}
+		
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}finally 
+		{
+			try {
+				ps.close();
+				con.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+		return productos;
+		
+	} 
 }
